@@ -1,6 +1,6 @@
 require "pstore"
 
-module CaptainsLog
+module SaltyNote
   class Note
     def self.add(message)
       

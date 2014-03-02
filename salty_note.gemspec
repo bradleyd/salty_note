@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'captains_log/version'
+require 'salty_note/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "captains_log"
-  spec.version       = CaptainsLog::VERSION
+  spec.name          = "salty_note"
+  spec.version       = SaltyNote::VERSION
   spec.authors       = ["Bradley Smith"]
   spec.email         = ["bradleydsmith@gmail.com"]
   spec.description   = %q{A simple note and task CLI application}

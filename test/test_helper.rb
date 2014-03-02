@@ -1,7 +1,7 @@
 require "minitest"
 require "minitest/autorun"
 require "minitest/pride"
-require "captains_log"
+require "salty_note"
 
 module CaptainsLog
   module TestHelpers

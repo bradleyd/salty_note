@@ -1,5 +1,5 @@
 require "pstore"
-module CaptainsLog
+module SaltyNote
   class DataStore
     def initialize(args={})
       @file  = args.fetch(:file) { File.join(ENV["HOME"], ".captains_log.store") } 
