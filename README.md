@@ -1,15 +1,15 @@
-# CaptainsLog
+# SaltyNote
 
 A simple note and task taking command line application
 
-### What makes captains_log awesome
+### What makes salty_note awesome
 * easy and intuitive arguments
 * stores data on cloud storage (Dropbox, box, google drive, etc..)
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'captains_log'
+    gem 'salty_note'
 
 And then execute:
 
@@ -17,7 +17,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install captains_log
+    $ gem install salty_note
 
 ## Usage
 
@@ -26,24 +26,24 @@ Or install it yourself as:
 #### Create a new note
 
 ```ruby
-captains_log note new "this is a sample note"
+salty_note note new "this is a sample note"
 ```
 
 #### List all notes
 
 ```ruby
-captains_log note all
+salty_note note all
 ```
 #### Delete a note
 
 ```ruby
-captains_log note delete 3
+salty_note note delete 3
 ```
 
 #### Search notes
 
 ```ruby
-captains_log note search foobar
+salty_note note search foobar
 ```
 
 ### Tasks
@@ -51,29 +51,29 @@ captains_log note search foobar
 #### Create a new task
 
 ```ruby
-captains_log task new "this is a sample task"
+salty_note task new "this is a sample task"
 ```
 #### List all tasks
 
 ```ruby
-captains_log task all
+salty_note task all
 ```
 
 #### Delete a task
 
 ```ruby
-captains_log task delete 3
+salty_note task delete 3
 ```
 
 #### Mark task as complete
 
 ```ruby
-captains_log task done 3
+salty_note task done 3
 ```
 #### Search tasks
 
 ```ruby
-captains_log task search foobar
+salty_note task search foobar
 ```
 
 
