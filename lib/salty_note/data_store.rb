@@ -23,7 +23,27 @@ module SaltyNote
 
     def find(type, id)
       transaction do
-        @store[type.to_sym].find { |i| i[:id] = id }
+        return "not found" if @store[type.to_sym].nil?
+        @store[type.to_sym].find { |i| i[:id] == id }
+      end
+    end
+
+    def find_all(type)
+      transaction do
+        @store[type.to_sym]
+      end
+    end
+
+    def remove(type, id)
+      transaction do
+         record = @store[type.to_sym].find {|i| i[:id] == id.to_i }
+         @store[type.to_sym].delete(record)
+      end
+    end
+
+    def search(type, args)
+      transaction do
+        @store[type.to_sym].find { |i| i[args.keys.first.to_sym] == args.values.first }
       end
     end
 
