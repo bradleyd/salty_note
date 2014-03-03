@@ -26,7 +26,7 @@ Or install it yourself as:
 #### Create a new note
 
 ```ruby
-salty_note note new "this is a sample note"
+salty_note note add "this is a sample note"
 ```
 
 #### List all notes
@@ -78,6 +78,11 @@ salty_note task search foobar
 
 
 ## Contributing
+
+### TODO
+
+* returns all data when creating a note
+
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)

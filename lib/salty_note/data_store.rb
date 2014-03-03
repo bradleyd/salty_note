@@ -11,11 +11,13 @@ module SaltyNote
     # @example 
     #   :note
     #   :task
-    # @param [Hash] args 
+    # @param [Hash] args
+    # @example
+    #   content: 'this is a string'
+    #   completed: false
     def create(type, args)
-      # increment id
       id = next_id(type)
-      @store.transaction do
+      transaction do
         @store[type.to_sym] = [] unless @store[type.to_sym]
         @store[type.to_sym] << args.merge(id: id, created_at: Time.now)
       end
@@ -24,7 +26,7 @@ module SaltyNote
     def find(type, id)
       transaction do
         return "not found" if @store[type.to_sym].nil?
-        @store[type.to_sym].find { |i| i[:id] == id }
+        @store[type.to_sym].find { |i| i[:id] == id.to_i }
       end
     end
 
@@ -37,6 +39,7 @@ module SaltyNote
     def remove(type, id)
       transaction do
          record = @store[type.to_sym].find {|i| i[:id] == id.to_i }
+         @store.abort unless record
          @store[type.to_sym].delete(record)
       end
     end
@@ -47,8 +50,9 @@ module SaltyNote
       end
     end
 
+    # find last id in root of the store
     def last_id(type)
-      @store.transaction do
+      transaction do
         if @store[type.to_sym] && @store[type.to_sym].count > 0
           @store[type.to_sym].last[:id]
         else
@@ -57,6 +61,7 @@ module SaltyNote
       end
     end
 
+    # auto increment the id of a root
     def next_id(type)
       last_id(type).to_i.next
     end
